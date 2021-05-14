@@ -1,0 +1,6 @@
+Final project showcase:
+https://twitter.ui.dev/
+
+Project code:
+https://github.com/uidotdev/redux-course-curriculum
+
