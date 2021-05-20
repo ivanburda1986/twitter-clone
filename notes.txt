@@ -1,3 +1,28 @@
+Steps: 
+Display initial data (tweets)
+- build the tweet component 
+- fetch the data 
+- display the tweets 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Final project showcase:
 https://twitter.ui.dev/
 
