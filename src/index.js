@@ -8,41 +8,28 @@ import * as ReactDOM from 'react-dom';
 import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 
 //Redux
-import {createStore} from 'redux';
+import {createStore, compose, applyMiddleware} from 'redux';
 import reducer from './reducers';
-import middleware from './middleware';
+
+import thunk from 'redux-thunk';
 
 //React-redux
-import {Provider, useSelector, useDispatch} from 'react-redux';
+import {Provider} from 'react-redux';
 
 //Styles
 import './index.css';
 
 //Components
 import ColorfulBorder from './components/ColorfulBorder/ColorfulBorder';
-import Tweet from './components/Tweet/Tweet';
-import { handleInitialData } from './actions/shared';
+import HomeFeed from './containers/HomeFeed/HomeFeed';
 
-
-function App () {
-    const dispatch = useDispatch();
-
-    React.useEffect(()=>{
-      dispatch(handleInitialData());
-    },[dispatch])
-
-    return(
-      <div className='container'>
-        <Tweet/>
-      </div>
-    )
-
-}
 
 //Store creation
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(
   reducer,
-  middleware
+  composeEnhancer(applyMiddleware(thunk))
 )
 
 
@@ -51,7 +38,7 @@ ReactDOM.render(
     <Provider store={store}>
      <BrowserRouter>
         <ColorfulBorder />
-        <App />
+        <HomeFeed />
      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
