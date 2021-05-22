@@ -1,7 +1,7 @@
 Steps: 
 Display initial data (tweets)
-- build the tweet component 
-- fetch the data 
+-DONE: build the tweet component 
+-DONE: fetch the data 
 - display the tweets 
 
 
@@ -17,10 +17,13 @@ Display initial data (tweets)
 
 
 
-
-
-
-
+//Hooks
+useState: Persist value between renders, trigger re-render
+useRef: Persist value between renders, no re-render
+useEffect: Side effects that run after render
+useReducer: useState in reducer pattern
+useMemo: Memoize value between renders
+useCB: Persist ref equality between renders
 
 
 Final project showcase:
