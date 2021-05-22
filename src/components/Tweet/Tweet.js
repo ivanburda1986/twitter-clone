@@ -4,23 +4,25 @@ import {AiOutlineHeart} from 'react-icons/ai';
 import {RiReplyLine} from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 
+import {getHumanDate} from '../../utils/convertors';
 
-export default function Tweet ({avatarURL, id, text, author, timestamp, likes, replies, replyingTo}){
+
+export default function Tweet ({avatarURL, id, text, authorName, timestamp, likes, replies, replyingTo}){
 
   return(
     <li>
-      <Link to={"/tweets/"+id} className="tweet">
-        <img src={avatarURL} alt={"Avatar image of" + author} className="avatarImg"/>
-        <div className="tweetInfo">
-          <div className="tweetHeader">
-            <p>{author}</p>
-            <p className="secondaryText">{timestamp}</p>
-            {replyingTo? <p className="secondaryText">Replying to @{replyingTo}</p> : null}
+      <Link to={"/tweets/"+id} className={classes.tweet}>
+        <img src={avatarURL} alt={"Avatar image of " + authorName} className={classes.avatarImg}/>
+        <div className={classes.tweetInfo}>
+          <div className={classes.tweetHeader}>
+            <p className={classes.authorName}>{authorName}</p>
+            <p className={classes.secondaryText}>{getHumanDate(timestamp)}</p>
+            {replyingTo? <p className={classes.secondaryText}>Replying to @{replyingTo}</p> : null}
           </div>
-          <div className="tweetBody">
+          <div className={classes.tweetBody}>
             {text}
           </div>
-          <div className="tweetFooter">
+          <div className={classes.tweetFooter}>
             <RiReplyLine/>
             <AiOutlineHeart/>
           </div>

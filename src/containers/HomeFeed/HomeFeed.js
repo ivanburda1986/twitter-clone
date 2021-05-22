@@ -20,18 +20,21 @@ export default function HomeFeed() {
     },[dispatch]);
 
 
-    // console.log('My users', users);
-    // console.log('My tweets', tweets);
+     console.log('My users', users);
+     console.log('My tweets', tweets);
 
     const displayTweets = () => {
-      console.log('DisplayTweets', tweets);
+      //console.log('DisplayTweets', tweets);
+      
       let tweetElements = [];
       if(tweets.length > 0){
+        //console.log(tweets)
         tweets.map((tweet)=>tweetElements.push(<Tweet
           key={tweet.id}
+          avatarURL={users[tweet.author].avatarURL}
           id = {tweet.id}
           text = {tweet.text}
-          author = {tweet.author}
+          authorName = {users[tweet.author].name}
           timestamp = {tweet.timestamp}
           likes = {tweet.likes.length}
           replies = {tweet.replies.length}
