@@ -1,14 +1,22 @@
 import React from 'react';
 import classes from './Tweet.module.css';
 import {AiOutlineHeart} from 'react-icons/ai';
+import {AiFillHeart} from 'react-icons/ai';
 import {RiReplyLine} from 'react-icons/ri';
+
 import { Link } from 'react-router-dom';
 
 import {getHumanDate} from '../../utils/convertors';
 
 
 export default function Tweet ({avatarURL, id, text, authorName, timestamp, likes, replies, replyingTo}){
-  console.log(replyingTo);
+  const showLikesIcon = () => {
+    let icon = <AiOutlineHeart/>
+    if (likes > 0) {
+      icon = <AiFillHeart className={classes.redHeart}/>
+    }
+    return icon;
+  }
   return(
     <li>
       <Link to={"/tweets/"+id} className={classes.tweet}>
@@ -23,8 +31,8 @@ export default function Tweet ({avatarURL, id, text, authorName, timestamp, like
             {text}
           </div>
           <div className={classes.tweetFooter}>
-            <RiReplyLine/>
-            <AiOutlineHeart/>
+            <span><RiReplyLine/> <p>{replies}</p></span>
+            <span>{showLikesIcon()} <p>{likes}</p></span>
           </div>
         </div>
       </Link>

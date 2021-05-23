@@ -14,7 +14,7 @@ export default function HomeFeed() {
     const dispatch = useDispatch();
     const users = useSelector((state)=>state.initialData.users);
     const tweets = useSelector((state)=>state.initialData.tweets);
-    const tweetsArray = Object.values(useSelector((state)=>state.initialData.tweets));
+    const tweetsArray = Object.values(useSelector((state)=>state.initialData.tweets)).sort((a,b)=>b.timestamp-a.timestamp);
 
     React.useEffect(()=>{
       dispatch(handleInitialData());
@@ -25,11 +25,9 @@ export default function HomeFeed() {
     //  console.log('My tweets', tweets);
 
     const displayTweets = () => {
-      //console.log('DisplayTweets', tweets);
-      
+  
       let tweetElements = [];
       if(tweetsArray.length > 0){
-        console.log(tweets["fap8sdxppna8oabnxljzcv"].author)
         tweetsArray.map((tweet)=>tweetElements.push(<Tweet
           key={tweet.id}
           avatarURL={users[tweet.author].avatarURL}
