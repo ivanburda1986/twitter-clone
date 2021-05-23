@@ -8,7 +8,7 @@ import {getHumanDate} from '../../utils/convertors';
 
 
 export default function Tweet ({avatarURL, id, text, authorName, timestamp, likes, replies, replyingTo}){
-
+  console.log(replyingTo);
   return(
     <li>
       <Link to={"/tweets/"+id} className={classes.tweet}>

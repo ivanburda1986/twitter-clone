@@ -13,23 +13,24 @@ import './HomeFeed.css';
 export default function HomeFeed() {
     const dispatch = useDispatch();
     const users = useSelector((state)=>state.initialData.users);
-    const tweets = Object.values(useSelector((state)=>state.initialData.tweets));
+    const tweets = useSelector((state)=>state.initialData.tweets);
+    const tweetsArray = Object.values(useSelector((state)=>state.initialData.tweets));
 
     React.useEffect(()=>{
       dispatch(handleInitialData());
     },[dispatch]);
 
 
-     console.log('My users', users);
-     console.log('My tweets', tweets);
+    //  console.log('My users', users);
+    //  console.log('My tweets', tweets);
 
     const displayTweets = () => {
       //console.log('DisplayTweets', tweets);
       
       let tweetElements = [];
-      if(tweets.length > 0){
-        //console.log(tweets)
-        tweets.map((tweet)=>tweetElements.push(<Tweet
+      if(tweetsArray.length > 0){
+        console.log(tweets["fap8sdxppna8oabnxljzcv"].author)
+        tweetsArray.map((tweet)=>tweetElements.push(<Tweet
           key={tweet.id}
           avatarURL={users[tweet.author].avatarURL}
           id = {tweet.id}
@@ -38,7 +39,7 @@ export default function HomeFeed() {
           timestamp = {tweet.timestamp}
           likes = {tweet.likes.length}
           replies = {tweet.replies.length}
-          replyingTo = {tweet.replyingTo}
+          replyingTo = {tweet.replyingTo ? tweets[tweet.replyingTo].author : null}
         />));
       }
       return tweetElements;
