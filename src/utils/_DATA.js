@@ -227,7 +227,7 @@ export function _saveLikeToggle ({ id, hasLiked, authedUser }) {
         }
       }
 
-      res()
+      res(tweets)
     }, 500)
   })
 }

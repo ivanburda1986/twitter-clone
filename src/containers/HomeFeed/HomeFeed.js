@@ -33,9 +33,10 @@ export default function HomeFeed() {
           avatarURL={users[tweet.author].avatarURL}
           id = {tweet.id}
           text = {tweet.text}
+          author = {tweet.author}
           authorName = {users[tweet.author].name}
           timestamp = {tweet.timestamp}
-          likes = {tweet.likes.length}
+          likes = {tweet.likes}
           replies = {tweet.replies.length}
           replyingTo = {tweet.replyingTo ? tweets[tweet.replyingTo].author : null}
         />));
