@@ -58,6 +58,14 @@ img{
  font-size: 1.1rem;
 }
 
+.icon{
+  font-size: 1.25rem;
+}
+
+.icon:hover{
+  color: red;
+}
+
 .redHeart{
   color: red;
 }

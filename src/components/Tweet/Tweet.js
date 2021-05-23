@@ -1,4 +1,9 @@
+//React
 import React from 'react';
+
+//React-redux
+import {useSelector, useDispatch} from 'react-redux';
+
 import classes from './Tweet.module.css';
 import {AiOutlineHeart} from 'react-icons/ai';
 import {AiFillHeart} from 'react-icons/ai';
@@ -10,13 +15,16 @@ import {getHumanDate} from '../../utils/convertors';
 
 
 export default function Tweet ({avatarURL, id, text, authorName, timestamp, likes, replies, replyingTo}){
+  const dispatch = useDispatch();
+  
   const showLikesIcon = () => {
-    let icon = <AiOutlineHeart/>
+    let icon = <AiOutlineHeart className={classes.icon}/>
     if (likes > 0) {
-      icon = <AiFillHeart className={classes.redHeart}/>
+      icon = <AiFillHeart className={[classes.icon, classes.redHeart].join(" ")}/>
     }
     return icon;
   }
+
   return(
     <li>
       <Link to={"/tweets/"+id} className={classes.tweet}>
@@ -31,7 +39,7 @@ export default function Tweet ({avatarURL, id, text, authorName, timestamp, like
             {text}
           </div>
           <div className={classes.tweetFooter}>
-            <span><RiReplyLine/> <p>{replies}</p></span>
+            <span><RiReplyLine className={classes.icon}/> <p>{replies}</p></span>
             <span>{showLikesIcon()} <p>{likes}</p></span>
           </div>
         </div>
