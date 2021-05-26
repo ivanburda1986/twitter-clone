@@ -4,19 +4,6 @@ Display initial data (tweets)
 -DONE: fetch the data 
 - display the tweets 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 //Hooks
 useState: Persist value between renders, trigger re-render
 useRef: Persist value between renders, no re-render
