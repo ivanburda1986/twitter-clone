@@ -13,7 +13,6 @@ import { Link } from 'react-router-dom';
 
 import {getHumanDate} from '../../utils/convertors';
 
-import {toggleLike} from '../../actions/toggleLike';
 
 
 export default function Tweet ({avatarURL, id, text, author, authorName, timestamp, likes, replies, replyingTo}){
@@ -30,8 +29,8 @@ export default function Tweet ({avatarURL, id, text, author, authorName, timesta
   const handleToggleLike = (e) => {
     e.preventDefault();
     
-    dispatch(toggleLike({ id: id, hasLiked: likes.includes("tylermcginnis"), authedUser: "tylermcginnis"}))
-    console.log("Dispatched:", { id: id, hasLiked: likes.includes("tylermcginnis"), authedUser: "tylermcginnis"});
+
+    // console.log("Dispatched:", { id: id, hasLiked: likes.includes("tylermcginnis"), authedUser: "tylermcginnis"});
     return false;
   }
 

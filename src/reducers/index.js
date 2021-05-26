@@ -1,6 +1,8 @@
 import {combineReducers} from 'redux';
-import receiveData from './receiveData';
+import users from './users';
+import tweets from './tweets';
 
 export default combineReducers({
-  initialData: receiveData,
+  users,
+  tweets
 });

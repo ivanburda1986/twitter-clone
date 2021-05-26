@@ -1,14 +1,13 @@
-import {RECEIVE_DATA} from '../actions/receiveData';
+import {RECEIVE_USERS} from '../actions/users';
 
-export default function receiveData(state = {users:{}, tweets:{}}, action){
+export default function users(state = {}, action){
   switch(action.type){
-    case RECEIVE_DATA:
+    case RECEIVE_USERS:
       // console.log('Reducers received users:',action.users);
       // console.log('Reducers received tweets:',action.tweets);
       return {
         ...state,
-        users: action.users,
-        tweets: action.tweets,
+        ...action.users
       };
     default: return state;
   }

@@ -5,24 +5,24 @@ import {useSelector, useDispatch} from 'react-redux';
 
 //Components
 import Tweet from '../../components/Tweet/Tweet';
-import { handleInitialData } from '../../actions/receiveData';
+import handleInitialData from '../../actions/shared';
 
 //Styles
 import './HomeFeed.css';
 
 export default function HomeFeed() {
     const dispatch = useDispatch();
-    const users = useSelector((state)=>state.initialData.users);
-    const tweets = useSelector((state)=>state.initialData.tweets);
-    const tweetsArray = Object.values(useSelector((state)=>state.initialData.tweets)).sort((a,b)=>b.timestamp-a.timestamp);
+    const users = useSelector((state)=>state.users);
+    const tweets = useSelector((state)=>state.tweets);
+    const tweetsArray = Object.values(useSelector((state)=>state.tweets)).sort((a,b)=>b.timestamp-a.timestamp);
 
     React.useEffect(()=>{
       dispatch(handleInitialData());
     },[dispatch]);
 
 
-    //  console.log('My users', users);
-    //  console.log('My tweets', tweets);
+    console.log('My users', users);
+    console.log('My tweets', tweets);
 
     const displayTweets = () => {
   
