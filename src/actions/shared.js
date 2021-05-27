@@ -1,7 +1,7 @@
 import {getInitialData} from '../utils/api';
 
 import receiveUsers from './users';
-import receiveTweets from './tweets';
+import {receiveTweets} from './tweets';
 
 export default function handleInitialData() {
   return async (dispatch) => {
