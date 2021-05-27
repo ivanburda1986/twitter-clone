@@ -23,9 +23,10 @@ function toggleTweet ({ id, hasLiked, authedUser }){
 export function handleToggleTweet(info){
   return async (dispatch) => {
     let response = await saveLikeToggle(info);
-    if(!response.ok){
-      throw new Error (`HTTP error! status: ${response.status}`);
-    };
+    console.log("REsponse: ",response);
+    // if(!response.ok){
+    //   throw new Error (`HTTP error! status: ${response.status}`);
+    // };
     dispatch(toggleTweet(response));
   }
 }

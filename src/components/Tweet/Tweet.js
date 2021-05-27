@@ -12,11 +12,15 @@ import {RiReplyLine} from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 
 import {getHumanDate} from '../../utils/convertors';
+import {handleToggleTweet} from '../../actions/tweets';
 
 
 
 export default function Tweet ({avatarURL, id, text, author, authorName, timestamp, likes, replies, replyingTo}){
   const dispatch = useDispatch();
+
+  //const authedUser = useSelector((state)=>state.authedUser);
+  const authedUser = "tylermcginnis";
   
   const showLikesIcon = () => {
     let icon = <AiOutlineHeart className={classes.icon}/>
@@ -26,9 +30,14 @@ export default function Tweet ({avatarURL, id, text, author, authorName, timesta
     return icon;
   }
 
-  const handleToggleLike = (e) => {
+  const handleLike = (e) => {
     e.preventDefault();
-    
+    console.log("Handle like submit:", authedUser, id, likes);
+    dispatch(handleToggleTweet({
+      id: id,
+      hasLiked: likes,
+      authedUser
+    }))
 
     // console.log("Dispatched:", { id: id, hasLiked: likes.includes("tylermcginnis"), authedUser: "tylermcginnis"});
     return false;
@@ -49,7 +58,7 @@ export default function Tweet ({avatarURL, id, text, author, authorName, timesta
           </div>
           <div className={classes.tweetFooter}>
             <button><RiReplyLine className={classes.icon}/> <p>{replies}</p></button>
-            <button onClick={(e)=>handleToggleLike(e)}>{showLikesIcon()} <p>{likes.length}</p></button>
+            <button onClick={(e)=>handleLike(e)}>{showLikesIcon()} <p>{likes.length}</p></button>
           </div>
         </div>
       </Link>
