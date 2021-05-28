@@ -12,6 +12,7 @@ export function receiveTweets (tweets){
 }
 
 function toggleTweet ({ id, hasLiked, authedUser }){
+  console.log("From toggleTweet: ", id)
   return{
     type: TOGGLE_TWEET,
     id,
@@ -27,7 +28,7 @@ export function handleToggleTweet(info){
     // if(!response.ok){
     //   throw new Error (`HTTP error! status: ${response.status}`);
     // };
-    dispatch(toggleTweet(response));
+    dispatch(toggleTweet(info));
   }
 }
 

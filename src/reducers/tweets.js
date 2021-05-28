@@ -10,13 +10,13 @@ export default function tweets (state = {}, action){
     case TOGGLE_TWEET:
       console.log(action);
       return{
-        // ...state,
-        // [action.id]:{
-        //   ...state[action.id],
-        //   likes: action.hasLiked === true
-        //   ? state[action.id].likes.filter((uid)=>uid!==action.authedUser)
-        //   : state[action.id].likes.concat([action.authedUser])
-        // }
+        ...state,
+        [action.id]:{
+          ...state[action.id],
+          likes: action.hasLiked.includes(action.authedUser)
+          ? state[action.id].likes.filter((uid)=>uid!==action.authedUser)
+          : state[action.id].likes.concat([action.authedUser])
+        }
       }
     default:
       return state;
