@@ -8,7 +8,6 @@ export default function tweets (state = {}, action){
         ...action.tweets
       }
     case TOGGLE_TWEET:
-      console.log(action);
       return{
         ...state,
         [action.id]:{

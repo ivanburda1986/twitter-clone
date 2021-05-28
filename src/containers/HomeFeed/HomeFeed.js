@@ -19,11 +19,6 @@ export default function HomeFeed() {
     React.useEffect(()=>{
       dispatch(handleInitialData());
     },[dispatch]);
-
-
-    console.log('My users', users);
-    console.log('My tweets', tweets);
-
     const displayTweets = () => {
   
       let tweetElements = [];

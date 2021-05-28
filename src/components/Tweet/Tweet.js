@@ -18,7 +18,6 @@ import {handleToggleTweet} from '../../actions/tweets';
 
 export default function Tweet ({avatarURL, id, text, author, authorName, timestamp, likes, replies, replyingTo}){
   const dispatch = useDispatch();
-
   //const authedUser = useSelector((state)=>state.authedUser);
   const authedUser = "tylermcginnis";
   
@@ -32,14 +31,11 @@ export default function Tweet ({avatarURL, id, text, author, authorName, timesta
 
   const handleLike = (e) => {
     e.preventDefault();
-    console.log("Handle like submit:", authedUser, id, likes);
     dispatch(handleToggleTweet({
       id: id,
       hasLiked: likes,
       authedUser
     }))
-
-    // console.log("Dispatched:", { id: id, hasLiked: likes.includes("tylermcginnis"), authedUser: "tylermcginnis"});
     return false;
   }
 

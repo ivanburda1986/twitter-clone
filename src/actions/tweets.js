@@ -12,7 +12,6 @@ export function receiveTweets (tweets){
 }
 
 function toggleTweet ({ id, hasLiked, authedUser }){
-  console.log("From toggleTweet: ", id)
   return{
     type: TOGGLE_TWEET,
     id,
@@ -24,7 +23,6 @@ function toggleTweet ({ id, hasLiked, authedUser }){
 export function handleToggleTweet(info){
   return async (dispatch) => {
     let response = await saveLikeToggle(info);
-    console.log("REsponse: ",response);
     // if(!response.ok){
     //   throw new Error (`HTTP error! status: ${response.status}`);
     // };
