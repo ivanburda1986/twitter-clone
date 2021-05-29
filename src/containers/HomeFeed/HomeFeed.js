@@ -25,14 +25,7 @@ export default function HomeFeed() {
       if(tweetsArray.length > 0){
         tweetsArray.map((tweet)=>tweetElements.push(<Tweet
           key={tweet.id}
-          avatarURL={users[tweet.author].avatarURL}
           id = {tweet.id}
-          text = {tweet.text}
-          author = {tweet.author}
-          authorName = {users[tweet.author].name}
-          timestamp = {tweet.timestamp}
-          likes = {tweet.likes}
-          replies = {tweet.replies.length}
           replyingTo = {tweet.replyingTo ? tweets[tweet.replyingTo].author : null}
         />));
       }
