@@ -18,7 +18,9 @@ import {handleToggleTweet} from '../../actions/tweets';
 
 export default function Tweet ({id}){
   const dispatch = useDispatch();
-  //const authedUser = useSelector((state)=>state.authedUser);
+
+  console.log("ID:", id);
+
   const authedUser = "tylermcginnis";
   const tweets = useSelector((state)=>state.tweets);
   const users = useSelector((state)=>state.users);
@@ -50,7 +52,7 @@ export default function Tweet ({id}){
 
   return(
     <li>
-      <Link to={"/tweets/"+id} className={classes.tweet}>
+      <Link to={"/tweet/"+id} className={classes.tweet}>
         <img src={users[tweet.author].avatarURL} alt={"Avatar image of " + users[tweet.author].name} className={classes.avatarImg}/>
         <div className={classes.tweetInfo}>
           <div className={classes.tweetHeader}>

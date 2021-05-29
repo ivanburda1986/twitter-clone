@@ -12,8 +12,6 @@ import './HomeFeed.css';
 
 export default function HomeFeed() {
     const dispatch = useDispatch();
-    const users = useSelector((state)=>state.users);
-    const tweets = useSelector((state)=>state.tweets);
     const tweetsArray = Object.values(useSelector((state)=>state.tweets)).sort((a,b)=>b.timestamp-a.timestamp);
 
     React.useEffect(()=>{
@@ -26,7 +24,6 @@ export default function HomeFeed() {
         tweetsArray.map((tweet)=>tweetElements.push(<Tweet
           key={tweet.id}
           id = {tweet.id}
-          replyingTo = {tweet.replyingTo ? tweets[tweet.replyingTo].author : null}
         />));
       }
       return tweetElements;

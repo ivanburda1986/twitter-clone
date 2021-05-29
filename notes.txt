@@ -22,3 +22,6 @@ https://github.com/uidotdev/redux-course-curriculum
 
 //React icons 
 https://react-icons.github.io/react-icons/
+
+React router dom 
+https://reactrouter.com/web/api/Hooks/useparams

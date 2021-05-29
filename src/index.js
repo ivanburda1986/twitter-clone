@@ -24,6 +24,7 @@ import ColorfulBorder from './components/ColorfulBorder/ColorfulBorder';
 import HomeFeed from './containers/HomeFeed/HomeFeed';
 import Navigation from './components/Navigation/Navigation';
 import NewTweetPage from './containers/NewTweet/NewTweetPage';
+import TweetDetail from './containers/TweetDetail/TweetDetail';
 
 
 //Store creation
@@ -44,6 +45,7 @@ ReactDOM.render(
         <Switch>
           <Route path="/" exact component={HomeFeed}/>
           <Route path="/new" exact component={NewTweetPage}/>
+          <Route path="/tweet/:id" component={TweetDetail}/>
           <Redirect to="/"/>
         </Switch>
      </BrowserRouter>
