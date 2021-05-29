@@ -22,6 +22,8 @@ import './index.css';
 //Components
 import ColorfulBorder from './components/ColorfulBorder/ColorfulBorder';
 import HomeFeed from './containers/HomeFeed/HomeFeed';
+import Navigation from './components/Navigation/Navigation';
+import NewTweetPage from './containers/NewTweet/NewTweetPage';
 
 
 //Store creation
@@ -38,7 +40,12 @@ ReactDOM.render(
     <Provider store={store}>
      <BrowserRouter>
         <ColorfulBorder />
-        <HomeFeed />
+        <Navigation/>
+        <Switch>
+          <Route path="/" exact component={HomeFeed}/>
+          <Route path="/new" exact component={NewTweetPage}/>
+          <Redirect to="/"/>
+        </Switch>
      </BrowserRouter>
     </Provider>
   </React.StrictMode>,

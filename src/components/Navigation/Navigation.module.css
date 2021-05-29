@@ -1,0 +1,15 @@
+.Navigation{
+  display: flex;
+  flex-direction: row;
+  width:100%;
+  max-width: 590px;
+  margin: 2em auto;
+}
+
+.NavLink{
+  margin-right: 2rem;
+}
+
+.Active{
+  font-weight: 800;
+}
